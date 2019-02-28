@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <title>NBA quiz applet</title>
+    </head>
+    <body>
+        <header>
+            <h1>Quiz Application</h1>
+            <ul class = "quiz-score-info">
+                <li>Question: <span class="question">3</span> / <span class="question-possible">10</span></li>
+                <li>Score: <span class="score">2</span> / <span class="score-possible" >10</span></li>
+            </ul>
+        </header>
+        <main> 
+            <div class="box start-quiz">
+                <h2>Welcome to the NBA quiz</h2>
+                <form action="">
+                    <legend>NBA QUIZ LANDING PAGE</legend>
+                    <button type="submit">Start The Quiz</button>
+                </form>
+            </div>
+            
+            <div class="box question-form">
+                <h2>Welcome To question 3 </h2>
+                <form action="">
+                    <legend>This is the third question</legend>
+                    <input type="radio" name="answer" value="Lakers" checked> Lakers<br>
+                    <input type="radio" name="answer" value="Celtics"> Celtics<br>
+                    <input type="radio" name="answer" value="Raptors"> Raptors<br>
+                    <input type="radio" name="answer" value="Heat"> Heat<br>
+                    <button type="submit">Save Answer</button>
+                </form>
+            </div>
+            <div class= "box answer-page">
+                <h2>Answer Page</h2>
+                <p>You have got the question: Wrong</p>
+                <p>Correct answer is</p>
+                <form action="">
+                    <button type="submit">Next Question</button>
+                </form>
+            </div>
+            <div class = "box ending-quiz">
+                <h2>Thank you for taking the test</h2>
+                <p>Your Final Score: <span class="final-score"></span> / <span class="final-score-possible"></span></p>
+            </div>
+        </main>
+        
+
+        
+
+    </body>
+</html>

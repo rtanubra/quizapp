@@ -1,0 +1,13 @@
+* {
+    box-sizing:"border-box";
+ }
+
+ .box {
+
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:10px;
+     height:450px;
+     width:600px;
+     border: 2px black solid;
+ }
