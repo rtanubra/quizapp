@@ -76,7 +76,10 @@ function handleRestartQuiz(){
     console.log("handleRestartQuiz restarting the quiz")
 }
 function renderScores(){
-    console.log("A function to render the scores")
+    $(".js-question-possible").text(questions.length)
+    $(".js-question").text(questionCounter)
+    $(".js-score").text(score)
+    $(".js-score-possible").text(questionCounter)
 }
 function callback(){
     //document ready function that will call my event handling functions.
