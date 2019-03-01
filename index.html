@@ -3,13 +3,17 @@
     <head>
         <link rel="stylesheet" href="index.css">
         <title>NBA quiz applet</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
     </head>
     <body>
         <header>
             <h1>Quiz Application</h1>
             <ul class = "quiz-score-info">
-                <li>Question: <span class="question">3</span> / <span class="question-possible">10</span></li>
-                <li>Score: <span class="score">2</span> / <span class="score-possible" >10</span></li>
+                <li>Question: <span class="js-question">3</span> / <span class="js-uestion-possible">10</span></li>
+                <li>Score: <span class="js-score">2</span> / <span class="js-score-possible" >10</span></li>
             </ul>
         </header>
         <main> 
@@ -21,7 +25,7 @@
                 </form>
             </div>
             
-            <div class="box question-form">
+            <div class="box question-form hide-me">
                 <h2>Welcome To question 3 </h2>
                 <form action="">
                     <legend>This is the third question</legend>
@@ -32,7 +36,7 @@
                     <button type="submit">Save Answer</button>
                 </form>
             </div>
-            <div class= "box answer-page">
+            <div class= "box answer-page hide-me">
                 <h2>Answer Page</h2>
                 <p>You have got the question: Wrong</p>
                 <p>Correct answer is</p>
@@ -40,14 +44,12 @@
                     <button type="submit">Next Question</button>
                 </form>
             </div>
-            <div class = "box ending-quiz">
+            <div class = "box ending-quiz hide-me">
                 <h2>Thank you for taking the test</h2>
-                <p>Your Final Score: <span class="final-score"></span> / <span class="final-score-possible"></span></p>
+                <p>Your Final Score: <span class="js-final-score"></span> / <span class="js-final-score-possible"></span></p>
             </div>
         </main>
-        
-
-        
-
+        <script src="data.js" ></script>
+        <script src="index.js" ></script>
     </body>
 </html>
