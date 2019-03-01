@@ -11,7 +11,17 @@ Events I will have
     2. Submit answer
     3. Next Question 
     4. End quiz 
+
 Landing on the page User will be directed to start box:
+document is ready we will be calling the callback function to allow for:
+    1. starting main page (landing page)
+    2. Begin listenning to events
+    3. Every time we move from page to page we run 5 functions:
+        1. Update scores 
+        2. Score logic
+        3. Update necessary box
+        4. render score and stats
+        5. show-box - dictates which screen should be shown 
 
 */
 'use strict';
@@ -29,7 +39,6 @@ const questions = [
     "What team drafted Ray Allen",
     "What year was Lebron James drafted in",
     "In which state did Lebron James play highschool basketball"
-
 ]
 const answers = [
     ["Chicago Bulls","Los Angeles Lakers","Boston Celtics","Golden State Warriors"],
@@ -44,7 +53,7 @@ const answers = [
     ["New York","Maryland","Miami","Ohio"]
 ]
 const correct_answer_index = [
-    [2,1,1,0,1,0,3,3,1,]
+    [2,1,1,0,1,0,3,3,1,3]
 ]
 
 function showBox(currentBox){
@@ -75,7 +84,6 @@ function callback(){
     handleSubmitAnswer()
     handleNextQuestion()
     handleRestartQuiz()
-
 }
 
 //when document is ready start with callback
