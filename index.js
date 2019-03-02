@@ -55,16 +55,41 @@ const answers = [
 const correct_answer_index = [
     [2,1,1,0,1,0,3,3,1,3]
 ]
-
+const boxNames = [
+    "js-start-quiz",
+    "js-question-form",
+    "js-answer-page",
+    "js-ending-quiz",
+]
 function showBox(currentBox){
     //take the class of the current box that should be displayed.
     //displays that box.
     //hide the three other boxes.
+    for (let i=0;i<boxNames.length;i++){
+        //identify for the desired box to display
+        if (currentBox===boxNames[i]){
+            console.log(`${boxNames[i]} is correct`)
+            //if currently hidden --> unhide
+            if ($(`.${boxNames[i]}`).hasClass("hide-me")){
+                $(`.${boxNames[i]}`).toggleClass("hide-me")
+            }
+        }
+        else {
+            if ($(`.${boxNames[i]}`).hasClass("hide-me")===false){
+                $(`.${boxNames[i]}`).toggleClass("hide-me")
+            }
+        }
+    }
 }
 function handleStart(){
     console.log("handleStart handling start quiz activated")
-    renderScores()
-    showBox("start-quiz")
+    $(".js-start-form").click((event)=>{
+        event.preventDefault()
+        console.log("button pressed")
+        questionCounter += 1
+        renderScores()
+        showBox("js-question-form")
+    })
 }
 function handleSubmitAnswer(){
     console.log("handleSubmitAnswer handling answer submission for all answer submissionas")
@@ -79,7 +104,7 @@ function renderScores(){
     $(".js-question-possible").text(questions.length)
     $(".js-question").text(questionCounter)
     $(".js-score").text(score)
-    $(".js-score-possible").text(questionCounter)
+    $(".js-score-possible").text(questionCounter>1?questionCounter-1:0)
 }
 function callback(){
     //document ready function that will call my event handling functions.
@@ -87,6 +112,8 @@ function callback(){
     handleSubmitAnswer()
     handleNextQuestion()
     handleRestartQuiz()
+    renderScores()
+    showBox("js-start-quiz")
 }
 
 //when document is ready start with callback
