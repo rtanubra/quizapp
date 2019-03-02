@@ -52,9 +52,8 @@ const answers = [
     ["2002","2003","2004","2005"],
     ["New York","Maryland","Miami","Ohio"]
 ]
-const correct_answer_index = [
-    [2,1,1,0,1,0,3,3,1,3]
-]
+const correct_answer_index = [2,1,1,0,1,0,3,3,1,3]
+
 const boxNames = [
     "js-start-quiz",
     "js-question-form",
@@ -88,13 +87,53 @@ function handleStart(){
         event.preventDefault()
         console.log("button pressed")
         questionCounter += 1
+        updateQuestionPage(questionCounter)
         renderScores()
         showBox("js-question-form")
     })
 }
+function updateQuestionPage(questionNumber){
+    $(".js-question-form").html(`
+    <h2>NBA QuizApp question: ${questionCounter}</h2>
+                <form action="">
+                    <legend>${questions[questionCounter-1]}?</legend>
+                    <input type="radio" name="answer" value="0" checked> ${answers[questionCounter-1][0]}<br>
+                    <input type="radio" name="answer" value="1"> ${answers[questionCounter-1][1]}<br>
+                    <input type="radio" name="answer" value="2"> ${answers[questionCounter-1][2]}<br>
+                    <input type="radio" name="answer" value="3"> ${answers[questionCounter-1][3]}<br>
+                    <button type="submit">Submit Answer</button>
+                </form>
+    `)
+}
+
+function updateAnswerPage(questionNumber,selectedAnswerIndex){
+    if (selectedAnswerIndex===correct_answer_index[questionNumber-1]){
+        $(".js-answer-page").html(`
+        <h2>Correct!</h2>
+            <p>You got question ${questionNumber} correct</p>
+            <p>Answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
+            <form action="">
+                <button class="js-next-question" type="submit">Next Question</button>
+            </form>
+        `)
+    }
+    else {
+        $(".js-answer-page").html(`
+        <h2>Wrong!</h2>
+            <p>You got question ${questionNumber} incorrect</p>
+            <p>Correct answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
+            <p>You selected ${answers[questionNumber-1][selectedAnswerIndex]}</p>
+            <form action="">
+                <button class="js-next-question" type="submit">Next Question</button>
+            </form>
+        `)
+    }
+}
+
 function handleSubmitAnswer(){
     console.log("handleSubmitAnswer handling answer submission for all answer submissionas")
 }
+
 function handleNextQuestion(){
     console.log("handleNextQuestion handling next question after we read answer result")
 }
@@ -112,6 +151,7 @@ function handleRestartQuiz(){
         showBox("js-start-quiz")
     })  
 }
+
 function renderScores(){
     $(".js-question-possible").text(questions.length)
     $(".js-question").text(questionCounter)
@@ -125,7 +165,8 @@ function callback(){
     handleNextQuestion()
     handleRestartQuiz()
     renderScores()
-    showBox("js-ending-quiz")
+    updateAnswerPage(1,3)
+    showBox("js-answer-page")
 }
 
 //when document is ready start with callback
