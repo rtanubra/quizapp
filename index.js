@@ -43,7 +43,7 @@ const questions = [
 const answers = [
     ["Chicago Bulls","Los Angeles Lakers","Boston Celtics","Golden State Warriors"],
     ["Kobe Bryant","Wilt Chamberlain","James Harden","Michael Jordan"],
-    ["Kobe Bryant","Bill Russell","","Michael Jordan","Phil Jackson"],
+    ["Kobe Bryant","Bill Russell","Michael Jordan","Phil Jackson"],
     ["Golden State Warriors","Chicago Bulls","Boston Celtics", "Miami Heat"],
     ["Lebron James","Scott Skiles", "Steve Nash","Rajon Rondo"],
     ["Steve Kerr","James Harden","Stephen Curry","Klay Thompson"],
@@ -133,7 +133,7 @@ function updateScores(questionNumber,userAnswer){
         score += 1
     }
 }
-function updateQuestionNumber(){
+function updateQuestionCounter(){
     if (questionCounter < 10){
         questionCounter += 1
     }
@@ -148,6 +148,8 @@ function handleSubmitAnswer(){
                 selected_answer = $(answerChoices[i]).attr("value")
             }
         }
+        //revert checked prop to first choice:
+        $(answerChoices[0]).prop("checked",true)
         updateAnswerPage(questionCounter,selected_answer)
         updateScores(questionCounter,selected_answer)
         renderScores()
@@ -160,6 +162,18 @@ function handleSubmitAnswer(){
 
 function handleNextQuestion(){
     console.log("handleNextQuestion handling next question after we read answer result")
+    $(".js-answer-page").on("click","button",event=>{
+        event.preventDefault()
+        if (questionCounter <10){
+            updateQuestionCounter()
+            renderScores()
+            updateQuestionPage(questionCounter)
+            showBox("js-question-form")
+        }
+        else{
+            showBox("js-ending-quiz")
+        }
+    })
 }
 
 function handleRestartQuiz(){
