@@ -60,6 +60,8 @@ const boxNames = [
     "js-answer-page",
     "js-ending-quiz",
 ]
+const answerChoices= ["#answer-0","#answer-1","#answer-2","#answer-3"]
+
 function showBox(currentBox){
     //take the class of the current box that should be displayed.
     //displays that box.
@@ -81,6 +83,7 @@ function showBox(currentBox){
         }
     }
 }
+
 function handleStart(){
     console.log("handleStart handling start quiz activated")
     $(".js-start-form").click((event)=>{
@@ -92,18 +95,14 @@ function handleStart(){
         showBox("js-question-form")
     })
 }
+
 function updateQuestionPage(questionNumber){
-    $(".js-question-form").html(`
-    <h2>NBA QuizApp question: ${questionCounter}</h2>
-                <form action="">
-                    <legend>${questions[questionCounter-1]}?</legend>
-                    <input type="radio" name="answer" value="0" checked> ${answers[questionCounter-1][0]}<br>
-                    <input type="radio" name="answer" value="1"> ${answers[questionCounter-1][1]}<br>
-                    <input type="radio" name="answer" value="2"> ${answers[questionCounter-1][2]}<br>
-                    <input type="radio" name="answer" value="3"> ${answers[questionCounter-1][3]}<br>
-                    <button type="submit">Submit Answer</button>
-                </form>
-    `)
+    $(".js-question-heading").text(`NBA QuizApp question: ${questionNumber}`)
+    $(".js-question-legend").text(`${questions[questionNumber-1]}?`)
+    $(".js-choice-0").text(`${answers[questionNumber-1][0]}`)
+    $(".js-choice-1").text(`${answers[questionNumber-1][1]}`)
+    $(".js-choice-2").text(`${answers[questionNumber-1][2]}`)
+    $(".js-choice-3").text(`${answers[questionNumber-1][3]}`)
 }
 
 function updateAnswerPage(questionNumber,selectedAnswerIndex){
@@ -132,11 +131,26 @@ function updateAnswerPage(questionNumber,selectedAnswerIndex){
 
 function handleSubmitAnswer(){
     console.log("handleSubmitAnswer handling answer submission for all answer submissionas")
+    $(".js-question-form").on("click","button",event=>{
+        event.preventDefault()
+        console.log("here")
+        let selected_answer;
+        for (let i =0; i<answerChoices.length;i++){
+            if ($(answerChoices[i]).prop("checked")){
+                console.log(answerChoices[i])
+            }
+            
+        }
+    
+    })
+    
+    
 }
 
 function handleNextQuestion(){
     console.log("handleNextQuestion handling next question after we read answer result")
 }
+
 function handleRestartQuiz(){
     console.log("handleRestartQuiz restarting the quiz")
     //reset all data counters
@@ -164,9 +178,9 @@ function callback(){
     handleSubmitAnswer()
     handleNextQuestion()
     handleRestartQuiz()
-    renderScores()
-    updateAnswerPage(1,3)
-    showBox("js-answer-page")
+    //testing question page
+    updateQuestionPage(1)
+    showBox("js-question-form")
 }
 
 //when document is ready start with callback
