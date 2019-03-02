@@ -68,13 +68,14 @@ function showBox(currentBox){
     for (let i=0;i<boxNames.length;i++){
         //identify for the desired box to display
         if (currentBox===boxNames[i]){
-            console.log(`${boxNames[i]} is correct`)
             //if currently hidden --> unhide
             if ($(`.${boxNames[i]}`).hasClass("hide-me")){
                 $(`.${boxNames[i]}`).toggleClass("hide-me")
             }
         }
+        //identify other boxes 
         else {
+            //if currently displaying another box. hide
             if ($(`.${boxNames[i]}`).hasClass("hide-me")===false){
                 $(`.${boxNames[i]}`).toggleClass("hide-me")
             }
@@ -99,6 +100,17 @@ function handleNextQuestion(){
 }
 function handleRestartQuiz(){
     console.log("handleRestartQuiz restarting the quiz")
+    //reset all data counters
+    $(".js-restart-quiz-button").click(event=>{
+        event.preventDefault()
+        console.log("here")
+        score = 0
+        questionCounter = 0 
+        //render data
+        renderScores()
+        //go back to starting page
+        showBox("js-start-quiz")
+    })  
 }
 function renderScores(){
     $(".js-question-possible").text(questions.length)
@@ -113,7 +125,7 @@ function callback(){
     handleNextQuestion()
     handleRestartQuiz()
     renderScores()
-    showBox("js-start-quiz")
+    showBox("js-ending-quiz")
 }
 
 //when document is ready start with callback
