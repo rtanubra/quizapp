@@ -106,7 +106,7 @@ function updateQuestionPage(questionNumber){
 }
 
 function updateAnswerPage(questionNumber,selectedAnswerIndex){
-    if (selectedAnswerIndex===correct_answer_index[questionNumber-1]){
+    if (selectedAnswerIndex==correct_answer_index[questionNumber-1]){
         $(".js-answer-page").html(`
         <h2>Correct!</h2>
             <p>You got question ${questionNumber} correct</p>
@@ -128,21 +128,32 @@ function updateAnswerPage(questionNumber,selectedAnswerIndex){
         `)
     }
 }
-
+function updateScores(questionNumber,userAnswer){
+    if (correct_answer_index[questionNumber-1]==userAnswer){
+        score += 1
+    }
+}
+function updateQuestionNumber(){
+    if (questionCounter < 10){
+        questionCounter += 1
+    }
+}
 function handleSubmitAnswer(){
     console.log("handleSubmitAnswer handling answer submission for all answer submissionas")
     $(".js-question-form").on("click","button",event=>{
         event.preventDefault()
-        console.log("here")
         let selected_answer;
         for (let i =0; i<answerChoices.length;i++){
             if ($(answerChoices[i]).prop("checked")){
-                console.log(answerChoices[i])
+                selected_answer = $(answerChoices[i]).attr("value")
             }
-            
         }
-    
+        updateAnswerPage(questionCounter,selected_answer)
+        updateScores(questionCounter,selected_answer)
+        renderScores()
+        showBox("js-answer-page")
     })
+    //questionCounter+1 is used because updateAnswerPage takes questionNumber not a 0 based index
     
     
 }
@@ -170,7 +181,6 @@ function renderScores(){
     $(".js-question-possible").text(questions.length)
     $(".js-question").text(questionCounter)
     $(".js-score").text(score)
-    $(".js-score-possible").text(questionCounter>1?questionCounter-1:0)
 }
 function callback(){
     //document ready function that will call my event handling functions.
@@ -178,9 +188,8 @@ function callback(){
     handleSubmitAnswer()
     handleNextQuestion()
     handleRestartQuiz()
-    //testing question page
-    updateQuestionPage(1)
-    showBox("js-question-form")
+    renderScores()
+    showBox("js-start-quiz")
 }
 
 //when document is ready start with callback
