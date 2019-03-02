@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link rel="stylesheet" href="index.css">
         <title>NBA quiz applet</title>
         <meta charset="utf-8">
@@ -10,10 +11,11 @@
     </head>
     <body>
         <header>
-            <h1>Quiz Application</h1>
+            <h1>NBA Quiz Application</h1>
             <ul class = "quiz-score-info">
-                <li>Question: <span class="js-question"></span> / <span class="js-question-possible"></span></li>
-                <li>Score: <span class="js-score"></span></li>
+                <li class= "header-list" >Question: <span class="js-question"></span> / <span class="js-question-possible"></span></li>
+                <li class="header-list" ><img id="logo" src="https://t6.rbxcdn.com/543780152c5056db0a85d44ec0d16e8a" alt="NBA logo" /></li>
+                <li class= "header-list">Score: <span class="js-score"></span></li>
             </ul>
         </header>
         <main> 
@@ -33,13 +35,13 @@
                     <input type="radio" id="answer-1" name="answer" value="1"><span class="js-choice-1"></span><br>
                     <input type="radio" id="answer-2" name="answer" value="2"><span class="js-choice-2"></span><br>
                     <input type="radio" id="answer-3" name="answer" value="3"><span class="js-choice-3"></span><br>
-                    <button type="submit">Submit Answer</button>
+                    <button class="js-submit-asnwer-button" type="submit">Submit Answer</button>
                 </form>
             </div>
             <div class= "box js-answer-page hide-me">
             </div>
             <div class = "box js-ending-quiz hide-me">
-                <h2>Thank you for taking the test</h2>
+                <h2>Thank you for taking the NBA Quiz</h2>
                 <p>Your Final Score: <span class="js-final-score"></span> / <span class="js-final-score-possible"></span></p>
                 <form action="">
                     <legend>Ready to try again?</legend>

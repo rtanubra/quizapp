@@ -127,6 +127,9 @@ function updateAnswerPage(questionNumber,selectedAnswerIndex){
             </form>
         `)
     }
+    if (questionNumber ===10){
+        $(".js-next-question").text("See Your Results!")
+    }
 }
 function updateScores(questionNumber,userAnswer){
     if (correct_answer_index[questionNumber-1]==userAnswer){
@@ -155,11 +158,11 @@ function handleSubmitAnswer(){
         renderScores()
         showBox("js-answer-page")
     })
-    //questionCounter+1 is used because updateAnswerPage takes questionNumber not a 0 based index
-    
-    
 }
-
+function updateEndingQuiz(){
+    $(".js-final-score").text(`${score}`)
+    $(".js-final-score-possible").text(`${questions.length}`)
+}
 function handleNextQuestion(){
     console.log("handleNextQuestion handling next question after we read answer result")
     $(".js-answer-page").on("click","button",event=>{
@@ -171,6 +174,7 @@ function handleNextQuestion(){
             showBox("js-question-form")
         }
         else{
+            updateEndingQuiz()
             showBox("js-ending-quiz")
         }
     })
