@@ -53,6 +53,7 @@ main{
      display:inline-block;
  }
  h2{
+    margin-top:20px;
     text-align: center;
  }
  .js-start-form{
@@ -69,6 +70,7 @@ main{
 
  legend{
      text-align: center;
+     overflow-wrap: break-word;
  }
  button{
     margin-top:5px;
@@ -94,5 +96,11 @@ main{
     margin-left:auto;
     height:230px;
     width:300px;
+ }
+ .choices-form{
+
+    overflow-wrap:break-word;
+    display:block;
+    flex:1;
 
  }

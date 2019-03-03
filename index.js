@@ -116,8 +116,7 @@ function updateAnswerPage(questionNumber,selectedAnswerIndex){
                 <p>Answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
                 <form action="">
                     <button class="js-next-question" type="submit">Next Question</button>
-                </form>
-                
+                </form>     
             </div>
             <img src=${correctSrc} alt="Giannis Antetokounmpo clapping, goodjob!" class="result-image">
         `)
