@@ -65,7 +65,6 @@ main{
      margin-right:auto;
      margin-left:auto;
      width:50%;
-
  }
 
  legend{
@@ -78,8 +77,22 @@ main{
     font-size:13px;
     color:white;
     border: 1px black solid;
+    border-radius: 10px;
  }
  button:hover{
      background-color: white;
      color:black;
+ }
+ .js-answer-page-box{
+     margin-right:auto;
+     margin-left:auto;
+     text-align: center;
+ }
+ .result-image{
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+    height:230px;
+    width:300px;
+
  }

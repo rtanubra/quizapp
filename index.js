@@ -61,6 +61,8 @@ const boxNames = [
     "js-ending-quiz",
 ]
 const answerChoices= ["#answer-0","#answer-1","#answer-2","#answer-3"]
+const correctSrc = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuFlybboxnupOiwk0kOGlK4opY-FJrco8Lp3dGdTKFBUjVFVPd"
+const incorrectSrc= "https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Michael_Jordan_crying.jpg/220px-Michael_Jordan_crying.jpg"
 
 function showBox(currentBox){
     //take the class of the current box that should be displayed.
@@ -109,22 +111,29 @@ function updateAnswerPage(questionNumber,selectedAnswerIndex){
     if (selectedAnswerIndex==correct_answer_index[questionNumber-1]){
         $(".js-answer-page").html(`
         <h2>Correct!</h2>
-            <p>You got question ${questionNumber} correct</p>
-            <p>Answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
-            <form action="">
-                <button class="js-next-question" type="submit">Next Question</button>
-            </form>
+            <div class="js-answer-page-box">
+                <p>You got question ${questionNumber} correct</p>
+                <p>Answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
+                <form action="">
+                    <button class="js-next-question" type="submit">Next Question</button>
+                </form>
+                
+            </div>
+            <img src=${correctSrc} alt="Giannis Antetokounmpo clapping, goodjob!" class="result-image">
         `)
     }
     else {
         $(".js-answer-page").html(`
         <h2>Wrong!</h2>
+        <div class="js-answer-page-box">
             <p>You got question ${questionNumber} incorrect</p>
             <p>Correct answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
             <p>You selected ${answers[questionNumber-1][selectedAnswerIndex]}</p>
             <form action="">
                 <button class="js-next-question" type="submit">Next Question</button>
             </form>
+            <img src=${incorrectSrc} alt="Michael Jordan Crying, you did not get it right!" class="result-image">
+        </div>
         `)
     }
     if (questionNumber ===10){
