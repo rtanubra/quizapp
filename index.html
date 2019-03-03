@@ -9,45 +9,45 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <header>
-            <h1>NBA Quiz Application</h1>
+        <header role='banner'>
+            <h1 role="heading" aria-level=1 >NBA Quiz Application</h1>
             <ul class = "quiz-score-info">
                 <li class= "header-list" >Question: <span class="js-question"></span> / <span class="js-question-possible"></span></li>
-                <li class="header-list" ><img id="logo" src="https://t6.rbxcdn.com/543780152c5056db0a85d44ec0d16e8a" alt="NBA logo" /></li>
+                <li class="header-list" ><img role=img id="logo" src="https://t6.rbxcdn.com/543780152c5056db0a85d44ec0d16e8a" alt="NBA logo" /></li>
                 <li class= "header-list">Score: <span class="js-score"></span></li>
             </ul>
         </header>
-        <main> 
-            <div class="box js-start-quiz hide-me">
-                <h2>Welcome to the NBA quiz</h2>
-                <form class="start-form"  action="">
+        <main role="main"> 
+            <section class="box js-start-quiz hide-me">
+                <h2 role="heading">Welcome to the NBA quiz</h2>
+                <form role="form" class="start-form"  action="">
                     <legend>What are you waiting for?</legend>
-                    <button class= "js-start-form" type="submit">Start The Quiz</button>
-                    <img id="tip-off" src="http://www1.pictures.gi.zimbio.com/Pau+Gasol+NBA+Finals+Game+4+Boston+Celtics+1xURArl2_B1l.jpg" alt="Celtics vs Lakers tipoff start of game">
+                    <button role="button" class= "js-start-form" type="submit">Start The Quiz</button>
+                    <img role="img" id="tip-off" src="http://www1.pictures.gi.zimbio.com/Pau+Gasol+NBA+Finals+Game+4+Boston+Celtics+1xURArl2_B1l.jpg" alt="Celtics vs Lakers tipoff start of game">
                 </form>
-            </div>
+            </section>
             
-            <div class="box js-question-form hide-me">
-                <h2 class="js-question-heading"></h2>
-                <form class="choices-form" action="">
+            <section class="box js-question-form hide-me">
+                <h2 aria-level=2 role="heading" class="js-question-heading"></h2>
+                <form role="form" class="choices-form" action="">
                     <legend class="js-question-legend"></legend>
                     <input class="choice-single" type="radio" id="answer-0" name="answer" value="0" checked> <span class="js-choice-0"></span><br>
                     <input class="choice-single" type="radio" id="answer-1" name="answer" value="1"><span class="js-choice-1"></span><br>
                     <input class="choice-single" type="radio" id="answer-2" name="answer" value="2"><span class="js-choice-2"></span><br>
                     <input class="choice-single" type="radio" id="answer-3" name="answer" value="3"><span class="js-choice-3"></span><br>
-                    <button class="js-submit-asnwer-button" type="submit">Submit Answer</button>
+                    <button role="button" class="js-submit-asnwer-button" type="submit">Submit Answer</button>
                 </form>
-            </div>
-            <div class= "box js-answer-page hide-me">
-            </div>
-            <div class = "box js-ending-quiz hide-me">
-                <h2>Thank you for taking the NBA Quiz</h2>
+            </section>
+            <section class= "box js-answer-page hide-me">
+            </section>
+            <section class = "box js-ending-quiz hide-me">
+                <h2 aria-level=2 role="heading" >Thank you for taking the NBA Quiz</h2>
                 <p>Your Final Score: <span class="js-final-score"></span> / <span class="js-final-score-possible"></span></p>
-                <form action="">
+                <form role="form" action="">
                     <legend>Ready to try again?</legend>
-                    <button class= "js-restart-quiz-button" type="submit">Restart Quiz</button>
+                    <button role="button" class= "js-restart-quiz-button" type="submit">Restart Quiz</button>
                 </form>
-            </div>
+            </section>
         </main>
         <script src="data.js" ></script>
         <script src="index.js" ></script>

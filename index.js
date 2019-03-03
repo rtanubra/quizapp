@@ -110,28 +110,28 @@ function updateQuestionPage(questionNumber){
 function updateAnswerPage(questionNumber,selectedAnswerIndex){
     if (selectedAnswerIndex==correct_answer_index[questionNumber-1]){
         $(".js-answer-page").html(`
-        <h2>Correct!</h2>
+        <h2 role="heading" aria-level=2 >Correct!</h2>
             <div class="js-answer-page-box">
                 <p>You got question ${questionNumber} correct</p>
                 <p>Answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
-                <form action="">
-                    <button class="js-next-question" type="submit">Next Question</button>
+                <form role="form" action="">
+                    <button role="button" class="js-next-question" type="submit">Next Question</button>
                 </form>     
             </div>
-            <img src=${correctSrc} alt="Giannis Antetokounmpo clapping, goodjob!" class="result-image">
+            <img role="img" src=${correctSrc} alt="Giannis Antetokounmpo clapping, goodjob!" class="result-image">
         `)
     }
     else {
         $(".js-answer-page").html(`
-        <h2>Wrong!</h2>
+        <h2 role="heading" aria-level=2 >Wrong!</h2>
         <div class="js-answer-page-box">
             <p>You got question ${questionNumber} incorrect</p>
             <p>Correct answer was ${answers[questionNumber-1][correct_answer_index[questionNumber-1]]}</p>
             <p>You selected ${answers[questionNumber-1][selectedAnswerIndex]}</p>
-            <form action="">
-                <button class="js-next-question" type="submit">Next Question</button>
+            <form role="form" action="">
+                <button role="button" class="js-next-question" type="submit">Next Question</button>
             </form>
-            <img src=${incorrectSrc} alt="Michael Jordan Crying, you did not get it right!" class="result-image">
+            <img role="img" src=${incorrectSrc} alt="Michael Jordan Crying, you did not get it right!" class="result-image">
         </div>
         `)
     }
