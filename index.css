@@ -73,7 +73,10 @@ main{
      flex:1;
      margin-top:30px;
  }
-
+.start-prompt{
+    text-align: center;
+    margin:20px;
+}
  legend{
      text-align: center;
      overflow-wrap: break-word;

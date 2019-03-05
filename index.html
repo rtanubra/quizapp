@@ -21,7 +21,7 @@
             <section class="box js-start-quiz hide-me">
                 <h2 role="heading">Welcome to the NBA quiz</h2>
                 <form role="form" class="start-form"  action="">
-                    <legend>What are you waiting for?</legend>
+                    <p class="start-prompt" >What are you waiting for?</p>
                     <button role="button" class= "js-start-form" type="submit">Start The Quiz</button>
                     <img role="img" id="tip-off" src="http://www1.pictures.gi.zimbio.com/Pau+Gasol+NBA+Finals+Game+4+Boston+Celtics+1xURArl2_B1l.jpg" alt="Celtics vs Lakers tipoff start of game">
                 </form>
@@ -30,7 +30,7 @@
             <section class="box js-question-form hide-me">
                 <h2 aria-level=2 role="heading" class="js-question-heading"></h2>
                 <form role="form" class="choices-form" action="">
-                    <legend class="js-question-legend"></legend>
+                    <p class="js-question-legend"></p>
                     <input class="choice-single" type="radio" id="answer-0" name="answer" value="0" checked> <span class="js-choice-0"></span><br>
                     <input class="choice-single" type="radio" id="answer-1" name="answer" value="1"><span class="js-choice-1"></span><br>
                     <input class="choice-single" type="radio" id="answer-2" name="answer" value="2"><span class="js-choice-2"></span><br>
@@ -43,8 +43,8 @@
             <section class = "box js-ending-quiz hide-me">
                 <h2 aria-level=2 role="heading" >Thank you for taking the NBA Quiz</h2>
                 <p>Your Final Score: <span class="js-final-score"></span> / <span class="js-final-score-possible"></span></p>
+                <p>Ready to try again?</p>
                 <form role="form" action="">
-                    <legend>Ready to try again?</legend>
                     <button role="button" class= "js-restart-quiz-button" type="submit">Restart Quiz</button>
                 </form>
             </section>
