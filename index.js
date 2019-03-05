@@ -62,7 +62,7 @@ const boxNames = [
 ]
 const answerChoices= ["#answer-0","#answer-1","#answer-2","#answer-3"]
 const correctSrc = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuFlybboxnupOiwk0kOGlK4opY-FJrco8Lp3dGdTKFBUjVFVPd"
-const incorrectSrc= "https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Michael_Jordan_crying.jpg/220px-Michael_Jordan_crying.jpg"
+const incorrectSrc= "https://media.npr.org/assets/img/2016/03/29/ap_090911089838_sq-3271237f28995f6530d9634ff27228cae88e3440-s800-c85.jpg"
 
 function showBox(currentBox){
     //take the class of the current box that should be displayed.
