@@ -11,10 +11,13 @@ body{
      margin-top:10px;
      width:320px;
  }
+ 
  .hide-me {
      display:none;
  }
-
+button,input:hover{
+    cursor:pointer;
+}
 header{
     left:0;
     margin:0;
