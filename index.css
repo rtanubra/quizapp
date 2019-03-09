@@ -9,15 +9,12 @@ body{
      margin-left:auto;
      margin-right:auto;
      margin-top:10px;
-     width:600px;
+     width:320px;
  }
  .hide-me {
      display:none;
  }
- .js-question-form{
-     width:300px;
-     height:400px;
- }
+
 header{
     left:0;
     margin:0;
